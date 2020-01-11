@@ -8,7 +8,6 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name= "PERSON")
@@ -17,7 +16,7 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private UUID id;
+    private Long id;
 
     @Column(name = "firstName")
     private String firstName;
@@ -36,57 +35,98 @@ public class Person {
     @Column(name = "lastUpdatedDate")
     private java.sql.Timestamp lastUpdatedDate;
 
-    //ID method
-    public UUID getId(){
+    /**
+     * Get person's ID
+     * @return Returns ID as Long
+     */
+    public Long getId(){
         return this.id;
     }
 
-    public void setId(UUID id) {
+    /**
+     * Set person's ID
+     * @param id Person's ID
+     */
+    public void setId(Long id) {
         this.id = id;
     }
 
-    //firstName Methods
+    /**
+     * Get person's first name
+     * @return Person's first name
+     */
     public String getFirstName() {
         return this.firstName;
     }
 
+    /**
+     * Set person's first name
+     * @param Name Person's first name
+     */
     public void setFirstName(String Name) {
         this.firstName = Name;
     }
 
-    //lastName methods
+    /**
+     * Get person's last name
+     * @return Person's last name
+     */
     public String getLastName() {
         return this.lastName;
     }
 
+    /**
+     * Set person's last name
+     * @param Name Person's last name
+     */
     public void setLastName(String Name) {
         this.lastName = Name;
     }
 
-    //capitalWorth methods
+    /**
+     * Get person's capital worth
+     * @return Returns Person's capital worth
+     */
     public BigDecimal getCapitalWorth() {
         return  this.capitalWorth;
     }
 
-    public void setCapitalWorth(BigDecimal worth) {
-        this.capitalWorth = worth;
+    /**
+     * Set person's capital worth
+     * @param capitalWorth Person's capital worth
+     */
+    public void setCapitalWorth(BigDecimal capitalWorth) {
+        this.capitalWorth = capitalWorth;
     }
 
-    //creationDate methods
+    /**
+     * Get person's creation date
+     * @return Person's creation date
+     */
     public Date getCreateDate(){
         return this.creationDate;
     }
 
+    /**
+     * Set person's creation date
+     * @param creationDate Person's creation date, takes java.util.date, converted to java.sql.timestamp
+     */
     public void setCreationDate(Date creationDate){
         this.creationDate = new Timestamp(creationDate.getTime());
     }
 
-    //lastUpdateMethods
-
+    /**
+     * Get person's last update date
+     * @return Person's last update date
+     */
     public Date getLastUpdatedDate() {
         return lastUpdatedDate;
     }
 
+    /**
+     * Set person's last update date
+     * @param lastUpdatedDate Person's last update date, takes java.util.date, converted to java.sql.timestamp
+     */
     public void setLastUpdatedDate(Date lastUpdatedDate) {
         this.lastUpdatedDate = new Timestamp(lastUpdatedDate.getTime());
     }
